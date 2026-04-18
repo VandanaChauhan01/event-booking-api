@@ -1,42 +1,50 @@
 # 🎟️ Event Booking API
 
-A RESTful API built using Node.js, Express, and MongoDB for managing events and bookings.
+## 📌 Description
+A backend API for managing events and bookings.  
+Users can register, login, view events, and book tickets.
 
 ---
 
 ## 🚀 Features
-
-- Create events
-- View all events
-- Book seats for events
-- Seat availability validation
+- User Authentication (JWT)
+- Create, Update, Delete Events
+- Book Events
+- Protected Routes
+- Role-based Access (Admin/User)
 
 ---
 
 ## 🛠️ Tech Stack
-
 - Node.js
 - Express.js
 - MongoDB
-- Mongoose
+- JWT Authentication
 
 ---
 
-## 📂 Project Structure
+## 📡 API Endpoints
 
-event-booking-api/
-│
-├── config/
-├── controllers/
-├── models/
-├── routes/
-├── server.js
-├── .env
+### Auth
+POST /api/auth/register  
+POST /api/auth/login  
+
+### Events
+GET /api/events  
+POST /api/events  
+PUT /api/events/:id  
+DELETE /api/events/:id  
+
+### Bookings
+POST /api/bookings  
+GET /api/bookings  
 
 ---
 
-## ⚙️ Installation
+## ⚙️ How to Run
 
-1. Clone the repo:
 ```bash
-git clone https://github.com/your-username/event-booking-api.git
+git clone https://github.com/VandanaChauhan01/event-booking-api
+cd event-booking-api
+npm install
+npm run dev
