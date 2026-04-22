@@ -1,23 +1,18 @@
 const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./config/db");
-
-const eventRoutes = require("./routes/eventRoutes");
-const bookingRoutes = require("./routes/bookingRoutes");
-
-dotenv.config();
-connectDB();
-
 const app = express();
+require("dotenv").config();
+
+// Middleware
 app.use(express.json());
 
+// Routes
+const authRoutes = require("./routes/authRoutes");
+const eventRoutes = require("./routes/eventRoutes");
+
+app.use("/api/auth", authRoutes);
 app.use("/api/events", eventRoutes);
-app.use("/api/bookings", bookingRoutes);
 
-app.get("/", (req, res) => {
-  res.send("API is running...");
-});
-
+// Server
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
